@@ -19,7 +19,7 @@
                     </li>
                     <% endfor %>
                 </ul>
-                </script>
+        </script>
         
         <script type="module">
         // (function() {
@@ -53,8 +53,9 @@
             const spliceElement = function() {
     
             };
+
+            let idCount = 0;
             const runTemplate = function(template="", data) {
-                let idCount = 0;
                 let lvl = 0;
                 const DEFAULTS = {
                     "__CREATE" : function() {
@@ -89,6 +90,10 @@
                             keys.shift();
                             keys.pop();
                             // do we have it?
+                            // ['id', 'items']
+                            // keys: ['id', '||', '__create'];
+                            // keys: ['id', '||', '__empty'];
+                            console.log(data);
                             if( Object.keys(data).includes(keys[0]) ) {
                                 replace += data[keys[0]];
                                 splitTemplate[i] = line.replace(find[0], replace);
