@@ -90,10 +90,6 @@
                             keys.shift();
                             keys.pop();
                             // do we have it?
-                            // ['id', 'items']
-                            // keys: ['id', '||', '__create'];
-                            // keys: ['id', '||', '__empty'];
-                            console.log(data);
                             if( Object.keys(data).includes(keys[0]) ) {
                                 replace += data[keys[0]];
                                 splitTemplate[i] = line.replace(find[0], replace);

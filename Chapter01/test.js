@@ -47,13 +47,14 @@ splitTemplate = [
 // 5 </li>
 // 6 </ul>
 
-
-const data = {
-  id: "todoApp",
-  items: [
-    { text: 'Write Anything' },
-    { text: 'Clean Dishes'},
-  ]
-}
-
-console.log(Object.keys(data));
+template = `
+<ul id="{{ id || __CREATE }}">
+    <% for element in items %>
+      <li id="{{ id || __CREATE }}">
+        <span class="text">{{ text || __EMPTY }}</span>
+        <button class="remove">Delete</button>
+      </li>
+    <% endfor %>
+  </ul>
+`
+console.log(template.split(/\n|\r\n/g));
